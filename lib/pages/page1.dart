@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:imithon/pages/page2.dart';
+import 'package:imithon/pages/page2dan2.dart';
 import 'package:imithon/pages/page3.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (value == null || value.isEmpty) {
       return "Iltimos elektron pochta kiriting";
     } else if (!value.contains("@") ||
-        !value.substring(value.indexOf("@")).contains("gmail.com")) {
+        !value.substring(value.indexOf("@")).contains(".")) {
       return "To'g'ri elektron pochta kiriting";
     }
     return null;
@@ -221,12 +222,28 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                         ),
                       ),
-                    Text("Don’t have any account?",style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF898A8D)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don’t have any account?",style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF898A8D)
+                        
+                        ),),
+                        TextButton(onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Registerpage()),
+                          );
+                        }, child:  Text("Sign in",style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.orange,
 
-                    ),),
+                        ),),)
+                      ],
+                    ),
                   ],
                 ),
               ),
